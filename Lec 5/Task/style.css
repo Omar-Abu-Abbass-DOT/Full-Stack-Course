@@ -1,0 +1,244 @@
+/* --- General Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fcf9f4;
+    color: #333;
+}
+
+/* --- 1. Sticky Header --- */
+.main-header {
+    background-color: #4b3621; /* Coffee Brown */
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* TASK: Sticky Position */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures header stays on top of everything */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d2b48c; /* Tan color on hover */
+}
+
+/* --- 2. Hero Section & Positioning --- */
+.hero-section {
+    position: relative; /* Context for absolute positioning */
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content .subheading {
+    font-size: 1.2rem;
+    margin-bottom: 3rem; /* Space for the button */
+}
+
+/* TASK: Absolute Positioning & Z-index for Button */
+.order-btn {
+    position: absolute;
+    bottom: 20%; /* Positioned relative to hero section */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the button perfectly */
+    
+    padding: 15px 30px;
+    background-color: #d2b48c;
+    color: #4b3621;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    
+    /* TASK: Z-index overlap */
+    z-index: 10; 
+    transition: background 0.3s, transform 0.3s;
+}
+
+/* TASK: Hover Effects */
+.order-btn:hover {
+    background-color: #fff;
+    transform: translateX(-50%) scale(1.1); /* Slight zoom + keep centered */
+}
+
+/* --- 3. Featured Drinks (Flexbox) --- */
+.featured-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.drinks-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    margin-top: 2rem;
+}
+
+.drink-card {
+    background: white;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding-bottom: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.drink-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+}
+
+.drink-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.drink-card h3 {
+    margin: 1rem 0 0.5rem;
+    color: #4b3621;
+}
+
+.drink-card p {
+    padding: 0 1rem;
+    color: #666;
+}
+
+/* --- 4. Newsletter --- */
+.newsletter-section {
+    background-color: #e8ded1;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.signup-form input {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-form button {
+    padding: 10px 20px;
+    background-color: #4b3621;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.social-links a {
+    color: #d2b48c;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* --- TASK: Sticky Element (Floating Button) --- */
+.floating-btn {
+    position: fixed; /* Fixed stays in place when scrolling */
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 999;
+}
+
+/* --- 5. Responsive Design (Media Queries) --- */
+
+/* Tablet View (< 900px) */
+@media (max-width: 900px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .drinks-container {
+        justify-content: space-around;
+    }
+}
+
+/* Mobile View (< 600px) */
+@media (max-width: 600px) {
+    /* Stack Navbar items */
+    .main-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Adjust Hero Text */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    /* Make button relative to avoid covering text on very small screens */
+    .order-btn {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        display: inline-block;
+        margin-top: 20px;
+    }
+    
+    /* Stack Drink Cards */
+    .drinks-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .drink-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
