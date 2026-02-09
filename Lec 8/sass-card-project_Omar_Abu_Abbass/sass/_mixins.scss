@@ -1,0 +1,32 @@
+// sass/_mixins.scss
+
+// Mixin 1: Flexbox centering utility
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin 2: Button Styler (With Parameters)
+@mixin btn-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, opacity 0.2s;
+
+  &:hover {
+    transform: translateY(-2px); // Bonus: Animation
+    opacity: 0.9;
+  }
+}
+
+// Mixin 3: Responsive Breakpoint
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}

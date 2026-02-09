@@ -1,0 +1,96 @@
+@charset "UTF-8";
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #dfe6e9;
+  color: #2d3436;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.page-header h1 {
+  color: #6c5ce7;
+}
+
+.page-footer {
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: rgb(114.5454545455, 132.3636363636, 137.4545454545);
+}
+
+.card {
+  background-color: #ffffff;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card {
+  padding: 20px;
+}
+.card h2 {
+  color: #6c5ce7;
+  margin-top: 0;
+}
+.card p {
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+.card .features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.card .features li {
+  padding: 5px 0;
+  border-bottom: 1px solid rgb(238.1111111111, 241.8055555556, 243.3888888889);
+}
+.card .features li:last-child {
+  border-bottom: none;
+}
+.card .features li::before {
+  content: "✓";
+  color: #6c5ce7;
+  margin-right: 8px;
+  font-weight: bold;
+}
+.card .btn {
+  width: 100%;
+  background-color: #6c5ce7;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, opacity 0.2s;
+}
+.card .btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

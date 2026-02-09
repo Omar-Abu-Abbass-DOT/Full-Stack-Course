@@ -1,0 +1,74 @@
+// sass/_card.scss
+
+.card {
+  background-color: $card-bg;
+  width: 350px;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  overflow: hidden; // Keeps image corners rounded
+  transition: transform 0.3s ease;
+
+  // Bonus: Hover effect on the whole card
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+
+  // Nesting images
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  // Nesting content wrapper
+  // Note: I assume we add a div class="card-content" in HTML for better padding
+  // If not, apply padding directly to elements
+  padding: $padding-base;
+
+  h2 {
+    color: $primary-color;
+    margin-top: 0;
+  }
+
+  p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  // Nesting the list
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+
+    li {
+      padding: 5px 0;
+      border-bottom: 1px solid lighten($bg-color, 5%);
+      
+      // Use parent selector & to handle last-child
+      &:last-child {
+        border-bottom: none;
+      }
+
+      // Adding a pseudo-element icon
+      &::before {
+        content: "✓";
+        color: $primary-color;
+        margin-right: 8px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  // Nesting the button and using the Mixin with arguments
+  .btn {
+    width: 100%;
+    @include btn-style($primary-color, white);
+  }
+
+  // Responsive Check (Mixin 3)
+  @include mobile {
+    width: 90%; // On mobile, card takes 90% width
+  }
+}
