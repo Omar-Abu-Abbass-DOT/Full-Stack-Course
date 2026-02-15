@@ -16,7 +16,7 @@ A comprehensive collection of JavaScript exercises designed to demonstrate a str
 
 ## Project Structure
 ```text
-JavaScript_Basics_Omar_Abu_Abbass/
+JavaScript_Basics&Core_Concepts_Omar_Abu_Abbass/
 │
 ├── solution.js         # Main script containing all solved tasks
 └── README.md           # Project documentation
