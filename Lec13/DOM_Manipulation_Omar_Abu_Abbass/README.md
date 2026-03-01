@@ -1,28 +1,35 @@
-# DOM Manipulation
+# DOM Manipulation & Interactive Login
 
 ## Project Overview
-A modern, interactive login interface built to demonstrate practical DOM (Document Object Model) manipulation. This project goes beyond basic HTML and CSS by integrating JavaScript to perform CRUD operations on the DOM, handle user events, and provide dynamic, real-time UI/UX feedback without reloading the page.
+This project serves as a complete assignment submission for the **DOM Manipulation** lecture. It features a modern, interactive login interface (Task 2) and includes comprehensive, code-commented solutions explaining core DOM concepts (Tasks 1, 3, and 4). 
 
 ## Key Features
-* **DOM Access & Manipulation:** Capturing user input and dynamically updating HTML content to display success or error messages.
-* **Event Listeners:** Handling form `submit` events and button `click` events to trigger interactive logic while preventing default browser behaviors.
-* **Dynamic Class Toggling:** Utilizing `classList.add()`, `.remove()`, and `.toggle()` to switch password visibility (text/password), display loading spinners, and trigger CSS animations.
-* **Modern UI/UX Design:** Implementing Glassmorphism (frosted glass effect), an animated gradient background, and simulated server-delay loading states.
-* **Error Handling Animations:** Adding a realistic "shake" animation to the login box when invalid credentials are submitted.
+* **Task 2 (Interactive Login):** * Captures user input and dynamically updates HTML content for success/error states.
+    * Utilizes Glassmorphism design, animated gradient backgrounds, and simulated server-delay loading states.
+    * Features a realistic "shake" animation on failed login attempts and dynamic class toggling (e.g., show/hide password).
+* **Tasks 1, 3, & 4 (DOM Core Concepts):** * Clearly demonstrates the differences between `innerText`, `textContent`, and `innerHTML`.
+    * Practically applies `appendChild`, `prepend`, and `append` to manipulate the DOM tree.
+    * Showcases CSS class manipulation using `classList.add()`, `.remove()`, and `.toggle()`.
 
 ## Technologies Used
-* **JavaScript (DOM API):** For event handling and dynamic interface updates.
-* **HTML5:** Semantic structure of the login form.
-* **CSS3:** Advanced styling including CSS variables, keyframe animations, and backdrop-filters.
-* **FontAwesome:** For intuitive UI icons (user, lock, eye toggle, spinner).
+* **JavaScript (DOM API):** For event handling, UI updates, and concept demonstrations.
+* **HTML5 & CSS3:** For structure, advanced styling (backdrop-filters), and animations.
 
 ## Project Structure
 ```text
 DOM_Manipulation_Omar_Abu_Abbass/
 │
-├── index.html          # Main structure and UI layout
-├── style.css           # Styling, animations, and Glassmorphism effects
-├── script.js           # JavaScript logic for DOM manipulation
+├── index.html          # Task 2: Login UI layout
+├── style.css           # Task 2: Login Styling & animations
+├── script.js           # Task 2: Login logic
+│
+├── assets/             # Solutions for Tasks 1, 3, and 4
+│   ├── tasks.html      # Playground to run the extra tasks
+│   └── tasks_solutions.js # Commented logic and explanations
+│
+├── screenshots/
+│   └── DOM_Manipulation_Preview.png  # Project preview image
+│
 └── README.md           # Project documentation
 
 Author
