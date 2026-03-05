@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <meta name="description" content="Bookora - A curated collection of technical books for Full Stack Developers. Read, Explore, and Discover the best resources for MongoDB, Node.js, and more.">
+  <meta name="keywords" content="Book Store, MongoDB, Full Stack, DOT Jordan, JavaScript, Tech Books">
+  <meta name="author" content="Omar Abu Abbass">
+  <meta name="theme-color" content="#2A7B88">
+
+  <title>Bookora — Read. Explore. Discover.</title>
+  
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="assets/logo.png" alt="Bookora Logo" class="logo-img" />
+        <span class="logo-text">Book<span class="logo-accent">ora</span></span>
+      </a>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle Dark Mode">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+        </button>
+        
+        <button class="cart-btn" id="cartToggle" aria-label="Open Shopping Cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        
+        <div class="auth-buttons" id="authButtons">
+          <button class="btn btn-outline" id="loginBtn">Log In</button>
+          <button class="btn btn-primary" id="registerBtn">Sign Up</button>
+        </div>
+        
+        <div class="user-menu hidden" id="userMenu">
+          <span class="user-greeting" id="userGreeting">Hi, User</span>
+          <button class="btn btn-outline btn-sm" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <img src="assets/logo.png" alt="Bookora Brand" class="hero-logo" />
+      <h1 class="hero-title">Discover Your Next <span class="highlight">Great Read</span></h1>
+      <p class="hero-subtitle">Read. Explore. Discover. — Your curated collection of tech books, handpicked for developers.</p>
+      
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search for MongoDB, React, JS..." aria-label="Search Books" />
+        <button class="btn btn-primary" id="searchBtn">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="books-section">
+      <div class="section-header">
+        <h2 class="section-title">Featured Books</h2>
+        <p class="section-desc">Browse, search, and add your favorites to the cart.</p>
+      </div>
+      
+      <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <p>Fetching library...</p>
+      </div>
+      
+      <div class="books-grid" id="booksGrid"></div>
+    </section>
+  </main>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping Cart Sidebar">
+    <div class="cart-header">
+      <h2>🛒 Your Cart</h2>
+      <button class="close-btn" id="cartClose" aria-label="Close Cart">&times;</button>
+    </div>
+    
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty" id="cartEmpty">Your cart is empty.</p>
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span class="total-price" id="totalPrice">$0.00</span>
+      </div>
+      <button class="btn btn-primary btn-full" id="checkoutBtn">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="modal-overlay hidden" id="authModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-btn modal-close" id="modalClose" aria-label="Close Modal">&times;</button>
+      <img src="assets/logo.png" alt="Bookora" class="modal-logo" />
+      <h2 class="modal-title" id="modalTitle">Log In</h2>
+      
+      <form id="authForm">
+        <div class="form-group hidden" id="nameGroup">
+          <label for="nameInput">Full Name</label>
+          <input type="text" id="nameInput" placeholder="Your name" autocomplete="name" />
+        </div>
+        
+        <div class="form-group">
+          <label for="emailInput">Email</label>
+          <input type="email" id="emailInput" placeholder="you@example.com" autocomplete="email" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" placeholder="••••••••" autocomplete="current-password" required />
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-full" id="authSubmit">Log In</button>
+        
+        <p class="auth-switch">
+          <span id="authSwitchText">Don't have an account?</span>
+          <a href="#" id="authSwitchLink">Sign Up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="assets/logo.png" alt="Bookora" class="footer-logo" />
+      <p class="footer-tagline">Read. Explore. Discover.</p>
+      <p class="footer-copy">&copy; 2026 Bookora. Crafted with passion by a Full Stack Developer at DOT Jordan.</p>    
+    </div>
+  </footer>
+
+</body>
+</html>
