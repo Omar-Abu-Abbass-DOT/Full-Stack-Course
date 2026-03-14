@@ -1,0 +1,80 @@
+/* --- Global Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Header Styling --- */
+.header {
+  background-color: #282c34;
+  color: #61dafb;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header p {
+  color: white;
+  margin-top: 5px;
+}
+
+/* --- Cards Container (Flexbox) --- */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 1rem;
+  flex: 1; /* Pushes the footer to the bottom */
+  flex-wrap: wrap;
+}
+
+/* --- Card Styling --- */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 250px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.card-content h3 {
+  color: #333;
+}
+
+/* --- Footer Styling --- */
+.footer {
+  background-color: #282c34;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
