@@ -1,0 +1,14 @@
+export default function DashboardLayout({ children }) {
+  return (
+    <div>
+      <nav>
+        <h3>Dashboard Navigation</h3>
+        <ul>
+          <li><a href="/dashboard">Home</a></li>
+          <li><a href="/dashboard/settings">Settings</a></li>
+        </ul>
+      </nav>
+      <div>{children}</div>
+    </div>
+  );
+}
