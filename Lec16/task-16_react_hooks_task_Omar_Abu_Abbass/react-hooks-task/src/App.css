@@ -1,0 +1,131 @@
+/* --- Global Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- Header --- */
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #282c34;
+  color: #61dafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.app-header p {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* --- Layout --- */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+/* --- Todo Sections --- */
+.todo-section {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.todo-section h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+  border-bottom: 2px solid #f0f2f5;
+  padding-bottom: 10px;
+}
+
+.todo-count {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #61dafb;
+}
+
+.add-btn {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #21a1c4;
+  color: #fff;
+}
+
+/* --- Lists & Items --- */
+.todo-list {
+  list-style: none;
+}
+
+.todo-item {
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border-left: 4px solid #61dafb;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+
+.todo-item:hover {
+  transform: translateX(5px);
+}
+
+.api-item {
+  border-left-color: #e74c3c;
+  display: flex;
+  justify-content: space-between;
+}
+
+.empty-msg, .loading-msg {
+  text-align: center;
+  color: #95a5a6;
+  font-style: italic;
+  padding: 20px 0;
+}
