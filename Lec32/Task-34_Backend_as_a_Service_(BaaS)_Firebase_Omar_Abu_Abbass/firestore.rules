@@ -1,0 +1,23 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /files/{fileId} {
+      allow read, delete: if request.auth != null
+        && request.auth.uid == resource.data.ownerId;
+
+      allow create: if request.auth != null
+        && request.auth.uid == request.resource.data.ownerId
+        && request.resource.data.keys().hasAll(
+             ['ownerId', 'name', 'storagePath', 'downloadURL', 'type', 'size', 'createdAt']
+           );
+
+      allow update: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
