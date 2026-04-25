@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth }      from "../context/AuthContext";
+import { useTheme }     from "../context/ThemeContext";
+import { useLanguage }  from "../context/LanguageContext";
+import { useFavorites } from "../context/FavoritesContext";
 
 const Navbar = ({ cartCount }) => {
   const { user, isAdmin, logout } = useAuth();
-  const navigate = useNavigate();
+  const { theme, toggleTheme }    = useTheme();
+  const { lang, toggleLang, t }   = useLanguage();
+  const { favorites }             = useFavorites();
+  const navigate  = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
@@ -13,35 +19,67 @@ const Navbar = ({ cartCount }) => {
     setMenuOpen(false);
   };
 
+  const close = () => setMenuOpen(false);
+
   return (
     <nav className="navbar">
-      <Link to="/" className="logo">ShopZone</Link>
+      {/* Logo */}
+      <Link to="/" className="logo" onClick={close}>🛍 ShopZone</Link>
 
-      <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-        <span></span>
-        <span></span>
-        <span></span>
+      {/* Hamburger */}
+      <button className="hamburger" onClick={() => setMenuOpen((p) => !p)} aria-label="Menu">
+        <span /><span /><span />
       </button>
 
-      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+      {/* Nav Links */}
+      <div className={`nav-center ${menuOpen ? "open" : ""}`}>
+        <Link to="/" className="nav-link" onClick={close}>{t("home")}</Link>
 
         {user ? (
           <>
-            <Link to="/cart" className="cart-link" onClick={() => setMenuOpen(false)}>
-              Cart
+            <Link to="/cart" className="nav-link cart-link" onClick={close}>
+              🛒 {t("cart")}
               {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
             </Link>
-            <Link to="/orders" onClick={() => setMenuOpen(false)}>My Orders</Link>
-            {isAdmin && <Link to="/admin" onClick={() => setMenuOpen(false)}>Admin</Link>}
-            <button onClick={handleLogout}>Logout</button>
+            <Link to="/favorites" className="nav-link" onClick={close}>
+              ❤️ {t("favorites")}
+              {favorites.length > 0 && (
+                <span className="cart-badge" style={{ background: "#ef4444" }}>
+                  {favorites.length}
+                </span>
+              )}
+            </Link>
+            <Link to="/orders"  className="nav-link" onClick={close}>📦 {t("myOrders")}</Link>
+            <Link to="/profile" className="nav-link" onClick={close}>👤 {t("myProfile")}</Link>
+            {isAdmin && (
+              <Link to="/admin" className="nav-link" onClick={close}>⚙️ {t("admin")}</Link>
+            )}
+            <button className="btn-logout" onClick={handleLogout}>{t("logout")}</button>
           </>
         ) : (
           <>
-            <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
-            <Link to="/register" onClick={() => setMenuOpen(false)}>Register</Link>
+            <Link to="/favorites" className="nav-link" onClick={close}>
+              ❤️ {t("favorites")}
+              {favorites.length > 0 && (
+                <span className="cart-badge" style={{ background: "#ef4444" }}>
+                  {favorites.length}
+                </span>
+              )}
+            </Link>
+            <Link to="/login"    className="nav-link" onClick={close}>{t("login")}</Link>
+            <Link to="/register" className="nav-link" onClick={close}>{t("register")}</Link>
           </>
         )}
+      </div>
+
+      {/* Controls */}
+      <div className="nav-right">
+        <button className="nav-icon-btn" onClick={toggleTheme} title="Toggle theme">
+          {theme === "light" ? "🌙" : "☀️"}
+        </button>
+        <button className="nav-icon-btn lang-btn" onClick={toggleLang} title="Switch language">
+          {lang === "en" ? "AR" : "EN"}
+        </button>
       </div>
     </nav>
   );

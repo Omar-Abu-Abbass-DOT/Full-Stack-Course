@@ -19,6 +19,12 @@ app.use("/api/products", productRoutes);
 app.use("/api/category", categoryRouter);
 app.use("/api/orders", orderRoutes);
 
+// Centralized error handler
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  res.status(status).json({ error: err.message || "Internal Server Error" });
+});
+
 const PORT = process.env.PORT || 5000;
 
 mongoose

@@ -4,13 +4,11 @@ const { createOrder, getMyOrders, getOrderById, getAllOrders, updateOrderStatus 
 const auth = require("../middleware/auth");
 const authorizeRole = require("../middleware/authorizeRole");
 
-// User routes
-router.post("/", auth, createOrder);
+// Admin: GET / must come before user: GET /:id to avoid route collision
+router.get("/", auth, authorizeRole("admin"), getAllOrders);
 router.get("/my", auth, getMyOrders);
 router.get("/:id", auth, getOrderById);
-
-// Admin routes
-router.get("/", auth, authorizeRole("admin"), getAllOrders);
+router.post("/", auth, createOrder);
 router.patch("/:id/status", auth, authorizeRole("admin"), updateOrderStatus);
 
 module.exports = router;
