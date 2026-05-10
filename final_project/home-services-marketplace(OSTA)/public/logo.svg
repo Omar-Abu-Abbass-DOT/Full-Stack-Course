@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="OSTA logo">
+  <defs>
+    <style>
+      .navy { fill: #1e3a5f; }
+      .orange { fill: #f97316; }
+      .white-stroke { fill: none; stroke: #ffffff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <!-- Gear (Navy) -->
+  <g class="navy">
+    <path d="M100 12 L112 22 L130 18 L136 36 L154 42 L150 60 L162 74 L150 88 L154 106 L136 112 L130 130 L112 126 L100 136 L88 126 L70 130 L64 112 L46 106 L50 88 L38 74 L50 60 L46 42 L64 36 L70 18 L88 22 Z"/>
+    <circle cx="100" cy="74" r="48" fill="#ffffff"/>
+    <circle cx="100" cy="74" r="48" fill="none" stroke="#1e3a5f" stroke-width="6"/>
+  </g>
+
+  <!-- House (Orange) -->
+  <g class="orange">
+    <path d="M75 90 L100 60 L125 90 L125 105 L75 105 Z"/>
+    <rect x="92" y="86" width="16" height="19" fill="#1e3a5f"/>
+  </g>
+
+  <!-- Wrench accent (Orange) -->
+  <g class="orange">
+    <path d="M64 64 L72 56 L80 60 L72 68 L80 84 L72 92 L60 80 Z" opacity="0.95"/>
+  </g>
+
+  <!-- Curved arrows (Navy + Orange) at the bottom -->
+  <g fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 130 Q70 150 100 144" stroke="#1e3a5f"/>
+    <path d="M150 130 Q130 150 100 144" stroke="#f97316"/>
+    <polygon points="100,140 108,144 100,148" fill="#1e3a5f"/>
+    <polygon points="100,140 92,144 100,148" fill="#f97316"/>
+  </g>
+
+  <!-- OSTA text -->
+  <text x="100" y="180" text-anchor="middle"
+        font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-weight="800" font-size="32" fill="#1e3a5f"
+        letter-spacing="2">OSTA</text>
+</svg>
